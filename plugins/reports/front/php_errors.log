@@ -1,0 +1,2 @@
+[29-Aug-2014 18:30:09 America/Sao_Paulo] PHP Warning:  error_log(../../../files/_log/php-errors.log): failed to open stream: Permission denied in C:\Supridesk\inc\toolbox.class.php on line 421
+[29-Aug-2014 18:30:33 America/Sao_Paulo] PHP Warning:  error_log(../../../files/_log/php-errors.log): failed to open stream: Permission denied in C:\Supridesk\inc\toolbox.class.php on line 421
