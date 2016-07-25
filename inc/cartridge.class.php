@@ -654,7 +654,7 @@ class Cartridge extends CommonDBTM {
         echo "<th width='12%'>Qtd Chamado</th>";
         echo "<th width='12%'>Qtd Reserva</th>";
         echo "<th width='21%'>Aplicar</th>";
-        echo "<th width='15%'>Remover</th>";
+        echo "<th width='15%' colspan = '2'>Remover</th>";
         echo "</tr>";
 
         if ($number > 0) {
@@ -777,7 +777,7 @@ class Cartridge extends CommonDBTM {
             } else {
                 // Se não existirem cartuchos Em Trânsito para este analista
                 echo "<tr class='tab_bg_2'>";
-                echo "<td colspan='5' class='center'><b>Não existem itens em trânsito para este analista.</b></td>";
+                echo "<td colspan='6' class='center'><b>Não existem itens em trânsito para este analista.</b></td>";
                 echo "</tr>";
             }
 
@@ -885,11 +885,11 @@ class Cartridge extends CommonDBTM {
             echo "<form method='post' action=\"" . $CFG_GLPI["root_doc"] . "/front/cartridgeitem.form.php\">";
             echo "<table width='100%' class='tab_cadre_fixe'>";
             echo "<tr>";
-            echo "<th colspan='5'>Cartuchos Aplicados pelo Analista&nbsp;:</th>";
+            echo "<th colspan='6'>Cartuchos Aplicados pelo Analista&nbsp;:</th>";
             echo "</tr>";
             echo "<tr>";
             echo "<th width='45%'>" . $LANG['cartridges'][1] . "</th>";
-            echo "<th>Data</th>";
+            echo "<th colspan='2' width='20%'>Data</th>";
             echo "<th>Chamados</th>";
             echo "<th>Quantidade</th>";
             echo "<th>Remover</th>";
@@ -929,7 +929,7 @@ class Cartridge extends CommonDBTM {
                     echo "<td><a href=\"" . $CFG_GLPI["root_doc"] . "/front/cartridgeitem.form.php?id=" . $ID . "\">" .
                     $fullname . "</a></td>";
                     //echo "<td>$fullname</td>";
-                    echo "<td class='center'>$data</td>";
+                    echo "<td class='center' colspan='2'>$data</td>";
                     echo "<td width='100' class='center'>$aplicado_chamado</td>";
                     echo "<td class='center'>$qtd</td>";
                     echo "<td class='tab_bg_2 center b'>";
@@ -947,14 +947,14 @@ class Cartridge extends CommonDBTM {
             } else {
                 // Se não existirem cartuchos Em Trânsito para este analista
                 echo "<tr class='tab_bg_1'>";
-                echo "<td colspan='5' class='center'><b>Não existem itens aplicados para este analista.</b></td>";
+                echo "<td colspan='6' class='center'><b>Não existem itens aplicados para este analista.</b></td>";
                 echo "</tr>";
             }
 
             if (Session::haveRight("cartridge", "w")) {
                 if ($number > 0) {
                     echo "<tr class='tab_bg_1'>";
-                    echo "<td colspan = '3' class='tab_bg_2 center'>&nbsp;</td>";
+                    echo "<td colspan = '4' class='tab_bg_2 center'>&nbsp;</td>";
             
                     echo "<td class='tab_bg_2 center'>";
                     echo "<input type='submit' name='removerTodosAplicados' value=\"" . $LANG['custom_cartridges'][5] . "\" class='submit'>";
@@ -974,7 +974,7 @@ class Cartridge extends CommonDBTM {
             echo "<th colspan='6'>Equipamentos em trânsito alocados para o analista&nbsp;:</th>";
             echo "</tr>";
             echo "<tr>";
-            echo "<th colspan = '3'>Equipamento</th>";
+            echo "<th colspan = '4'>Equipamento</th>";
             echo "<th width='21%'>Chamado</th>";
             echo "<th width='15%'>Remover</th>";
             echo "</tr>";
@@ -1051,7 +1051,7 @@ class Cartridge extends CommonDBTM {
                         
                         echo "<tr class='tab_bg_1'>";
 
-                        echo "<td colspan = '3'><a href=\"" . $CFG_GLPI["root_doc"] . "/front/{$form}.form.php?id=" . $id . "\">" .
+                        echo "<td colspan = '4'><a href=\"" . $CFG_GLPI["root_doc"] . "/front/{$form}.form.php?id=" . $id . "\">" .
                         $name . "</a><input type='hidden' name='{$form2[$form][$id]}' value={$id}></td>";
 
                         echo "<td align = 'center'><a href=\"" . $CFG_GLPI["root_doc"] . "/front/ticket.form.php?id=" . $rowchamado['tickets_id'] . "\">" .
@@ -1078,10 +1078,10 @@ class Cartridge extends CommonDBTM {
             if (Session::haveRight("cartridge", "w")) {
                 if ($var == 1) {
                     echo "<tr class='tab_bg_1'>";
-                    echo "<td colspan = '4' class='tab_bg_2 center'>&nbsp;</td>";                    
-                    echo "<td class='tab_bg_2 center'>";
-                    echo "<input type='submit' name='removerReservas' value='Remover Todos' class='submit'>";
-                    echo "</td>";
+                    echo "<td colspan = '6' class='tab_bg_2 center'>&nbsp;</td>";                    
+                    //echo "<td class='tab_bg_2 center'>";
+                    //echo "<input type='submit' name='removerReservas' value='Remover Todos' class='submit'>";
+                    //echo "</td>";
                     echo "</tr>";
                 }
             } 
@@ -1101,7 +1101,7 @@ class Cartridge extends CommonDBTM {
             //sempre mostra equipamentos de todas entidades, pois no supridesk está associado o local físico
             Ticket::dropdownAllDevices(0, 'Printer', 0, 1, 0, 0, $options);
             echo "</td>";
-            echo "<td colspan='3' class='tab_bg_2' width='30%' height='30' align='left'>";
+            echo "<td colspan='4' class='tab_bg_2' width='30%' height='30' align='left'>";
             echo "&nbsp;&nbsp;<input name='chamado_equip' size='10'>&nbsp;&nbsp;<input type='submit' name='addEquipamentoC' value=' Adicionar Chamado ' class='submit'>";
             echo "</td>";
             echo "<td class='tab_bg_2' width='30%' height='30' align='left'>";
