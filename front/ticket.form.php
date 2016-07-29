@@ -119,7 +119,7 @@ if (isset($_POST["add"])) {
 
     $notificationSMS = new NotificationSms();
     $notificationSMS->enviaSMS($tID, NULL, 'add');
-    $notificationSMS->enviaSMSGilson($tID, NULL, 'add');
+    //$notificationSMS->enviaSMSGilson($tID, NULL, 'add');
 
     if ($tID) {
         $track->addCartridgeItem($tID, $_POST["tID"], 1);
